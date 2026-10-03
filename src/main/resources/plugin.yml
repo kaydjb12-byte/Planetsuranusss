@@ -1,0 +1,27 @@
+name: PlanetsUranus
+version: '${project.version}'
+main: com.planets.uranus.UranusPlugin
+api-version: '1.21.11'
+description: Planets - the Uranus item that freezes your enemies.
+authors: [Planets]
+
+commands:
+  uranus1:
+    description: Freeze nearby enemies (hold the Uranus item).
+    usage: /uranus1
+    permission: planets.uranus.use
+  uranus:
+    description: Uranus admin command.
+    usage: /uranus <give [player]|reload>
+    permission: planets.uranus.admin
+
+permissions:
+  planets.uranus.use:
+    description: Allows using /uranus1.
+    default: true
+  planets.uranus.admin:
+    description: Allows /uranus give and /uranus reload.
+    default: op
+  planets.uranus.bypass:
+    description: Players with this permission cannot be frozen by Uranus.
+    default: false

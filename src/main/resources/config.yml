@@ -1,0 +1,63 @@
+# PlanetsUranus configuration
+
+# How far (in blocks) the freeze reaches around the caster.
+radius: 10.0
+
+# How long targets stay frozen.
+duration-seconds: 3.0
+
+# Time before the same player can use /uranus1 again.
+cooldown-seconds: 10.0
+
+# Who can be frozen.
+freeze-players: true
+freeze-mobs: true
+
+# If true, the caster must hold the Uranus item (main hand or off hand).
+require-item: true
+
+# Cooldown display on the action bar (above the XP bar / hearts) while /uranus1 recharges.
+hud:
+  enabled: true
+  # The ability name shown on the bar.
+  ability-name: "Uranus Freeze"
+  # Show the Uranus icon from the resource pack. Set to false if players don't have the pack
+  # (a plain snowflake is shown instead).
+  use-icon: true
+  # Number of segments in the progress bar.
+  bar-length: 10
+  # Play a soft chime when the ability is ready again.
+  ready-sound: true
+
+# Passive: Frost Armor.
+# While you hold Uranus, anyone who hits you gets chilled - a nerfed powder-snow effect
+# (partial frost screen + mild Slowness). It never fully freezes or damages anyone.
+passive:
+  enabled: true
+  # Must be holding Uranus (main hand or off hand) for the passive to work.
+  require-held: true
+  # Chill mobs that hit you too (players are always affected).
+  affect-mobs: false
+  # Also chill players who hit you with arrows / tridents etc.
+  include-projectiles: false
+  # How long the chill lasts.
+  duration-seconds: 2.0
+  # Strength of the frost screen, 0-95 (100 would be a full freeze, so it is capped).
+  freeze-percent: 45
+  # 0 = Slowness I (about -15% speed), 1 = Slowness II, ...
+  slowness-amplifier: 0
+  # An attacker can only be chilled once per this many seconds, so it can't be chained.
+  per-attacker-cooldown-seconds: 4.0
+
+# Messages use MiniMessage formatting.
+messages:
+  chilled: "<aqua>Frost clings to you!</aqua>"
+  need-item: "<red>You must be holding Uranus!</red>"
+  cooldown: "<red>Uranus is recharging... <white>{seconds}s</white></red>"
+  cast: "<aqua>Uranus freezes your enemies!</aqua>"
+  frozen: "<aqua>You have been frozen by Uranus!</aqua>"
+  given: "<aqua>You received Uranus.</aqua>"
+  given-other: "<aqua>Gave Uranus to {player}.</aqua>"
+  reloaded: "<green>PlanetsUranus config reloaded.</green>"
+  no-player: "<red>Player not found.</red>"
+  players-only: "<red>Only players can use this command.</red>"
